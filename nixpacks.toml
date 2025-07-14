@@ -1,0 +1,5 @@
+[phases.setup]
+aptPkgs = ['wkhtmltopdf']
+
+[start]
+cmd = "python -m flask db upgrade && gunicorn --worker-class eventlet -w 1 --timeout 120 app:app"
