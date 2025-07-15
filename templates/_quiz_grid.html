@@ -42,8 +42,8 @@
       <h3 class="quiz-title">{{ quiz.title }}</h3>
 
       <div class="creator-info">
-        <img src="{{ url_for('static', filename='images/default_avatar.png') }}" 
-             onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/default_avatar.jpg') }}';" 
+        <img src="{{ url_for('static', filename='images/default_avatar.webp') }}" 
+             onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/default_avatar.webp') }}';" 
              alt="Avatar of {{ quiz.creator.username }}" class="creator-avatar">
         <span class="creator-name">{{ quiz.creator.username }}</span>
       </div>
