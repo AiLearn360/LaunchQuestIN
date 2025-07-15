@@ -11,6 +11,8 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', 'yscf enwg ovor sste')
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER', 'include1iostream2@gmail.com')
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+    OAUTHLIB_INSECURE_TRANSPORT = '0'
+    
     # --- NEW: Google OAuth Credentials ---
     # Replace with your actual credentials from the Google Cloud Console
     GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID')
