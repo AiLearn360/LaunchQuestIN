@@ -10,12 +10,15 @@ from flask_migrate import Migrate
 from datetime import datetime, timezone, UTC
 from markupsafe import Markup
 import pytz  # Added for time zone handling
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 # --- NEW: Import OAuth from the new blueprint ---
 from blueprints.oauth import oauth_bp, oauth
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1) 
 app.config.from_object(Config)
+ 
 
 csrf = CSRFProtect(app)
 db.init_app(app)
@@ -24,6 +27,7 @@ login_manager.login_view = 'auth.login'
 mail.init_app(app)
 migrate = Migrate(app, db)
 socketio.init_app(app)
+
 
 # --- NEW: Initialize OAuth with the app context ---
 oauth.init_app(app)
