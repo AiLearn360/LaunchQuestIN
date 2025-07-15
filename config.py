@@ -7,9 +7,9 @@ class Config:
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME', 'include1iostream2@gmail.com')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', 'yscf enwg ovor sste')
-    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER', 'include1iostream2@gmail.com')
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME', 'launchquestin@gmail.com')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', 'lqqw vdnt znqo hrvn')
+    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER', 'launchquestin@gmail.com')
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     
     OAUTHLIB_INSECURE_TRANSPORT = '0'
