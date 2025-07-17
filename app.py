@@ -1,5 +1,3 @@
-import eventlet
-eventlet.monkey_patch()
 import json
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_login import LoginManager, current_user, login_required
@@ -28,7 +26,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'auth.login'
 mail.init_app(app)
 migrate = Migrate(app, db)
-socketio.init_app(app, async_mode="eventlet")
+socketio.init_app(app)
 
 
 # --- NEW: Initialize OAuth with the app context ---
@@ -189,5 +187,4 @@ app.register_blueprint(oauth_bp)
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    # socketio.run(app, debug=False)
-    socketio.run(app, host='0.0.0.0', port=5000)
+    socketio.run(app, debug=False)
