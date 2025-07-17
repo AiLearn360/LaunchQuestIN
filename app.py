@@ -1,3 +1,5 @@
+import eventlet
+eventlet.monkey_patch()
 import json
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_login import LoginManager, current_user, login_required
@@ -11,8 +13,7 @@ from datetime import datetime, timezone, UTC
 from markupsafe import Markup
 import pytz  # Added for time zone handling
 from werkzeug.middleware.proxy_fix import ProxyFix
-import eventlet
-eventlet.monkey_patch()
+
 # --- NEW: Import OAuth from the new blueprint ---
 from blueprints.oauth import oauth_bp, oauth
 
