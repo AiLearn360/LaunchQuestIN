@@ -2,4 +2,5 @@
 aptPkgs = ['wkhtmltopdf']
 
 [start]
+# This command runs database migrations and then starts the server correctly
 cmd = "python -m flask db upgrade && gunicorn --worker-class eventlet -w 1 --timeout 120 app:app"
