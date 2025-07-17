@@ -28,7 +28,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'auth.login'
 mail.init_app(app)
 migrate = Migrate(app, db)
-socketio.init_app(app)
+socketio.init_app(app, async_mode="eventlet")
 
 
 # --- NEW: Initialize OAuth with the app context ---
