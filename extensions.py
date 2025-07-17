@@ -2,7 +2,7 @@ from flask_mail import Mail
 from flask_socketio import SocketIO
 
 mail = Mail()
-socketio = SocketIO()
+socketio = SocketIO(cors_allowed_origins="*")
 
 # --- State for tracking online users ---
 # This shared dictionary will hold the state of online users for each chat room.

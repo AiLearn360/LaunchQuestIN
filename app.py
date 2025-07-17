@@ -11,7 +11,8 @@ from datetime import datetime, timezone, UTC
 from markupsafe import Markup
 import pytz  # Added for time zone handling
 from werkzeug.middleware.proxy_fix import ProxyFix
-
+import eventlet
+eventlet.monkey_patch()
 # --- NEW: Import OAuth from the new blueprint ---
 from blueprints.oauth import oauth_bp, oauth
 
@@ -26,7 +27,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'auth.login'
 mail.init_app(app)
 migrate = Migrate(app, db)
-socketio.init_app(app)
+socketio.init_app(app, cors_allowed_origins="*")
 
 
 # --- NEW: Initialize OAuth with the app context ---
@@ -187,4 +188,5 @@ app.register_blueprint(oauth_bp)
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    socketio.run(app, debug=False)
+    # socketio.run(app, debug=False)
+    socketio.run(app, host='0.0.0.0', port=5000)
